@@ -1,48 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231118 01:56:07.937" rpa="false" schemaversion="4">
-<suite id="s1" name="Home" source="C:\QAx\projects\walkdog-robot\home.robot">
-<test id="s1-t1" name="Home Page deve estar online" line="8">
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231118 02:16:19.886" rpa="false" schemaversion="4">
+<suite id="s1" name="Signup" source="C:\QAx\projects\walkdog-robot\signup.robot">
+<test id="s1-t1" name="Deve poder cadastrar um novo walker" line="9">
 <kw name="New Browser" library="Browser">
 <arg>browser=chromium</arg>
-<arg>headless=false</arg>
+<arg>headless=False</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20231118 01:56:09.397" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\QAx\\projects\\walkdog-robot\\logs\\browser\\traces\\5a6e7065-12f1-420b-8e1f-8d078300fae8"}</msg>
-<msg timestamp="20231118 01:56:11.452" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\QAx\\projects\\walkdog-robot\\logs\\browser\\traces\\5a6e7065-12f1-420b-8e1f-8d078300fae8"}</msg>
-<status status="PASS" starttime="20231118 01:56:09.395" endtime="20231118 01:56:11.452"/>
+<msg timestamp="20231118 02:16:20.626" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\QAx\\projects\\walkdog-robot\\logs\\browser\\traces\\2f5ff0fe-dd56-4dd3-8f63-381bd7b56a17"}</msg>
+<msg timestamp="20231118 02:16:21.432" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\QAx\\projects\\walkdog-robot\\logs\\browser\\traces\\2f5ff0fe-dd56-4dd3-8f63-381bd7b56a17"}</msg>
+<status status="PASS" starttime="20231118 02:16:20.625" endtime="20231118 02:16:21.432"/>
 </kw>
 <kw name="New Page" library="Browser">
-<arg>https://walkdog.vercel.app/</arg>
+<arg>https://walkdog.vercel.app/signup</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20231118 01:56:13.379" level="INFO">Successfully initialized new page object and opened url: https://walkdog.vercel.app/</msg>
-<msg timestamp="20231118 01:56:13.379" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20231118 01:56:11.465" endtime="20231118 01:56:13.379"/>
+<msg timestamp="20231118 02:16:22.508" level="INFO">Successfully initialized new page object and opened url: https://walkdog.vercel.app/signup</msg>
+<msg timestamp="20231118 02:16:22.508" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20231118 02:16:21.432" endtime="20231118 02:16:22.508"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>form h1</arg>
+<arg>visible</arg>
+<arg>5000</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20231118 02:16:22.548" level="INFO">Waited for Element with selector form h1 at state visible</msg>
+<status status="PASS" starttime="20231118 02:16:22.509" endtime="20231118 02:16:22.549"/>
 </kw>
 <kw name="Get Text" library="Browser">
-<arg>h1</arg>
+<arg>form h1</arg>
 <arg>equal</arg>
-<arg>Cuidado e diversão em cada passo</arg>
+<arg>Faça seu cadastro</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<msg timestamp="20231118 01:56:13.515" level="INFO">Text: 'Cuidado e diversão em cada passo'</msg>
-<status status="PASS" starttime="20231118 01:56:13.380" endtime="20231118 01:56:13.516"/>
+<msg timestamp="20231118 02:16:22.580" level="INFO">Text: 'Faça seu cadastro'</msg>
+<status status="PASS" starttime="20231118 02:16:22.549" endtime="20231118 02:16:22.580"/>
 </kw>
-<kw name="Take Screenshot" library="Browser">
-<tag>PageContent</tag>
-<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<msg timestamp="20231118 01:56:13.516" level="WARN">Keyword 'Take Screenshot' found both from a custom library 'Browser' and a standard library 'Screenshot'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'Browser.Take Screenshot' or 'Screenshot.Take Screenshot'.</msg>
-<msg timestamp="20231118 01:56:13.731" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20231118 01:56:13.516" endtime="20231118 01:56:13.732"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231118 02:16:32.581" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231118 02:16:22.581" endtime="20231118 02:16:32.581"/>
 </kw>
-<status status="PASS" starttime="20231118 01:56:09.386" endtime="20231118 01:56:13.733"/>
+<status status="PASS" starttime="20231118 02:16:20.622" endtime="20231118 02:16:32.581"/>
 </test>
-<doc>Suite de testes da home page ***</doc>
-<status status="PASS" starttime="20231118 01:56:07.940" endtime="20231118 01:56:13.898"/>
+<doc>Suite de testes de cadastro de dog walker</doc>
+<status status="PASS" starttime="20231118 02:16:19.887" endtime="20231118 02:16:32.702"/>
 </suite>
 <statistics>
 <total>
@@ -51,10 +60,9 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Home">Home</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Signup">Signup</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231118 01:56:13.516" level="WARN">Keyword 'Take Screenshot' found both from a custom library 'Browser' and a standard library 'Screenshot'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'Browser.Take Screenshot' or 'Screenshot.Take Screenshot'.</msg>
 </errors>
 </robot>
